@@ -1,0 +1,7 @@
+#!/bin/bash
+git clone https://gitlab.com/romanov73/example-jpa.git
+./example-jpa/gradlew build
+systemctl postgres disable
+systemctl postgres stop
+docker build -t myimagesit -f DockerFile .
+docker run -it --name=mycontainersit myimagesit
